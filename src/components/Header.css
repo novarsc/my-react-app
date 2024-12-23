@@ -1,0 +1,110 @@
+/* 기본 헤더 스타일 */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.logo a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.nav-menu ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.nav-menu li a:hover {
+  color: #007bff;
+}
+
+/* 햄버거 버튼 */
+.hamburger {
+  display: none; /* 데스크톱에서는 숨김 */
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* 추가: 활성화된 메뉴 아이템 강조 */
+.nav-menu .nav-item .active {
+  font-weight: bold;
+  border-bottom: 2px solid #007bff;
+}
+
+/* 추가: 애니메이션 효과 */
+.nav-menu ul {
+  animation: slide-down 0.3s ease;
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 반응형 스타일 */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block; /* 모바일에서 햄버거 버튼 표시 */
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 4px;
+
+    /* 초기 상태 (숨김) */
+    transform: scaleY(0);
+    transform-origin: top;
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .nav-menu.active {
+    /* 메뉴가 열릴 때 */
+    transform: scaleY(1);
+    opacity: 1;
+  }
+
+  .nav-menu ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav-menu li a {
+    font-size: 1rem;
+    padding: 5px 10px;
+  }
+}

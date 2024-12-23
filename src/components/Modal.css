@@ -1,0 +1,153 @@
+/* 모달 배경 덮개 */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6); /* 반투명 배경 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* 모달 콘텐츠 */
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px; /* 둥근 모서리 */
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
+  width: 90%;
+  max-width: 500px;
+  overflow: hidden;
+  animation: slide-in 0.3s ease; /* 열릴 때 슬라이드 애니메이션 */
+}
+
+/* 모달 닫기 애니메이션 */
+.fade-out {
+  animation: fade-out 0.3s ease;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* 모달 슬라이드 애니메이션 */
+@keyframes slide-in {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* 닫기 버튼 */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #007bff; /* 닫기 버튼 호버 색상 */
+}
+
+/* 모달 헤더 */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* 모달 탭 버튼 */
+.modal-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.tab-btn.active {
+  border-color: #007bff;
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* 모달 본문 */
+.modal-body {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  max-height: 300px; /* 본문 최대 높이 */
+  overflow-y: auto; /* 스크롤 활성화 */
+}
+
+/* 모달 푸터 */
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+}
+
+.action-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.action-btn:hover {
+  background-color: #0056b3;
+}
+
+/* 반응형 스타일 */
+@media (max-width: 768px) {
+  .modal-content {
+    max-width: 90%; /* 모바일에서 더 작은 너비 */
+  }
+
+  .modal-header {
+    font-size: 1rem; /* 모바일 헤더 폰트 크기 조정 */
+  }
+
+  .modal-body {
+    font-size: 0.9rem; /* 본문 폰트 크기 조정 */
+  }
+}
